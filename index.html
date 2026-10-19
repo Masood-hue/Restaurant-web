@@ -155,6 +155,63 @@
       </div>
     </section>
 
+    <!-- ===== RESERVATION ===== -->
+    <section class="reservation section" id="reservations">
+      <div class="container">
+        <div class="section-header">
+          <h2>Book a Table</h2>
+          <p>Reserve your spot for an unforgettable dining experience.</p>
+        </div>
+        <form class="form reservation-form" id="reservationForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resName">Full Name</label>
+              <input type="text" id="resName" name="name" required placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+              <label for="resEmail">Email Address</label>
+              <input type="email" id="resEmail" name="email" required placeholder="jane@example.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resPhone">Phone Number</label>
+              <input type="tel" id="resPhone" name="phone" required placeholder="(555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="resGuests">Number of Guests</label>
+              <select id="resGuests" name="guests" required>
+                <option value="">Select guests</option>
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5 guests</option>
+                <option value="6">6+ guests</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resDate">Reservation Date</label>
+              <input type="date" id="resDate" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="resTime">Reservation Time</label>
+              <input type="time" id="resTime" name="time" required>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="resRequests">Special Requests (optional)</label>
+            <textarea id="resRequests" name="requests" rows="2" placeholder="Allergies, celebrations, seating preferences..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Request Reservation</button>
+          <p class="form-note">* This is a front-end demo. No real reservation is confirmed without backend integration.</p>
+          <div class="form-feedback" id="resFeedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
 
 </body>
 </html>
