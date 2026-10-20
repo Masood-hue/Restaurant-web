@@ -1,7 +1,5 @@
-/* ============================================================
-   SAVORA — Restaurant Website JavaScript
-   Vanilla JS only. No frameworks, no dependencies.
-   ============================================================ */
+/*    SAVORA — Restaurant Website JavaScript
+   Vanilla JS only. No frameworks, no dependencies.   */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -26,18 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  /* =========================================================
-     2. STICKY NAVIGATION SHADOW
-     ========================================================= */
+  /*    2. STICKY NAVIGATION SHADOW  */
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     if (header) {
       header.classList.toggle('scrolled', window.scrollY > 10);
     }
   });
-/* =========================================================
-     3. SMOOTH SCROLLING FOR INTERNAL LINKS
-     ========================================================= */
+/*       3. SMOOTH SCROLLING FOR INTERNAL LINKS     */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -49,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
- /* =========================================================
-     4. MENU DATA & RENDERING
-     ========================================================= */
+  /*             4. MENU DATA & RENDERING        */
   const menuItems = [
     {
       id: 1,
@@ -108,5 +100,32 @@ document.addEventListener('DOMContentLoaded', () => {
       popular: true
     }
   ];
+const menuGrid = document.getElementById('menuGrid');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+
+  function renderMenu(filter = 'all') {
+    if (!menuGrid) return;
+    const filtered = filter === 'all'
+      ? menuItems
+      : menuItems.filter(item => item.category === filter);
+
+    menuGrid.innerHTML = filtered.map(item => `
+      <article class="menu-card" data-category="${item.category}">
+        ${item.popular ? '<span class="popular-badge">🔥 Popular</span>' : ''}
+        <img src="${item.image}" alt="${item.name}" loading="lazy" width="600" height="400">
+        <div class="menu-card-body">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <div class="menu-card-footer">
+            <span class="price">${item.price}</span>
+            <button class="btn btn-primary add-to-order" data-id="${item.id}" aria-label="Add ${item.name} to order">Add to Order</button>
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // Re-attach add-to-order listeners
+    attachAddToOrderListeners();
+  }
 
 })
