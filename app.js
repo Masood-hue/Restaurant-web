@@ -181,5 +181,65 @@ const menuGrid = document.getElementById('menuGrid');
       showToast(`🎉 Deal added to order — Cart: ${cartCount} item${cartCount > 1 ? 's' : ''}`);
     });
   }
+//  6. *TESTIMONIALS SLIDER*
+    
+  const testimonials = [
+    {
+      name: 'Emily R.',
+      stars: '★★★★★',
+      review: 'The best burger I’ve had in years! The atmosphere is warm and the staff treat you like family.',
+      avatar: 'https://i.pravatar.cc/80?img=1'
+    },
+    {
+      name: 'Marcus T.',
+      stars: '★★★★★',
+      review: 'Savora never disappoints. The spicy chicken pizza is a flavour explosion — I order it every week.',
+      avatar: 'https://i.pravatar.cc/80?img=3'
+    },
+    {
+      name: 'Aisha K.',
+      stars: '★★★★☆',
+      review: 'Beautiful presentation and generous portions. The chocolate lava cake is a must-try dessert!',
+      avatar: 'https://i.pravatar.cc/80?img=5'
+    }
+  ];
+
+  const track = document.getElementById('testimonialTrack');
+  let currentSlide = 0;
+
+  function renderTestimonials() {
+    if (!track) return;
+    track.innerHTML = testimonials.map(t => `
+      <div class="testimonial-card" role="group" aria-label="Testimonial from ${t.name}">
+        <div class="stars" aria-label="${t.stars.replace(/★/g, 'star, ').replace(/☆/g, 'empty star, ')}">${t.stars}</div>
+        <blockquote>“${t.review}”</blockquote>
+        <div class="author">${t.name}</div>
+      </div>
+    `).join('');
+    updateSliderPosition();
+  }
+
+  function updateSliderPosition() {
+    if (!track) return;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  const prevBtn = document.getElementById('prevTestimonial');
+  const nextBtn = document.getElementById('nextTestimonial');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+      updateSliderPosition();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % testimonials.length;
+      updateSliderPosition();
+    });
+  }
+
+  renderTestimonials();
 
 })
