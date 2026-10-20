@@ -26,4 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  /* =========================================================
+     2. STICKY NAVIGATION SHADOW
+     ========================================================= */
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }
+  });
 
+})
