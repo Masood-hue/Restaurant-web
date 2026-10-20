@@ -127,5 +127,59 @@ const menuGrid = document.getElementById('menuGrid');
     // Re-attach add-to-order listeners
     attachAddToOrderListeners();
   }
+ // Filter button listeners
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMenu(btn.dataset.filter);
+    });
+  });
+
+  // Initial render
+  renderMenu();
+
+  /* =========================================================
+     5. ADD-TO-ORDER CART COUNT
+     ========================================================= */
+  let cartCount = 0;
+  const cartToast = document.getElementById('cartToast');
+
+  function showToast(message) {
+    if (!cartToast) return;
+    cartToast.textContent = message;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 2200);
+  }
+
+  function attachAddToOrderListeners() {
+    document.querySelectorAll('.add-to-order').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const itemId = Number(e.currentTarget.dataset.id);
+        const item = menuItems.find(m => m.id === itemId);
+        if (item) {
+          cartCount++;
+          showToast(`🛒 Added "${item.name}" — Cart: ${cartCount} item${cartCount > 1 ? 's' : ''}`);
+        }
+      });
+    });
+  }
+
+  // Also handle "Order Now" and "Grab This Deal" buttons
+  const orderNowBtn = document.getElementById('orderNowBtn');
+  if (orderNowBtn) {
+    orderNowBtn.addEventListener('click', () => {
+      cartCount++;
+      showToast(`🛒 Order started — Cart: ${cartCount} item${cartCount > 1 ? 's' : ''}`);
+    });
+  }
+
+  const grabDealBtn = document.getElementById('grabDealBtn');
+  if (grabDealBtn) {
+    grabDealBtn.addEventListener('click', () => {
+      cartCount++;
+      showToast(`🎉 Deal added to order — Cart: ${cartCount} item${cartCount > 1 ? 's' : ''}`);
+    });
+  }
 
 })
