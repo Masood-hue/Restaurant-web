@@ -680,5 +680,54 @@ h3 {
     color: rgba(255,255,255,0.7); 
   }
 
+  /* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+   bottom: 2rem; right: 2rem;
+   background: var(--red); 
+  color: #fff;
+  border: none;
+   width: 48px;
+   height: 48px;
+   border-radius: 50%; 
+  font-size: 1.3rem;
+  cursor: pointer;
+   opacity: 0;
+   visibility: hidden; 
+  transition: all var(--transition);
+  box-shadow: var(--shadow-md);
+   z-index: 90;
+}
+.back-to-top.visible {
+   opacity: 1;
+   visibility: visible;
+ }
+.back-to-top:hover {
+   background: var(--orange);
+ }
+
+/* ===== CART TOAST ===== */
+
+.cart-toast {
+  position: fixed;
+   bottom: 2rem; 
+  left: 50%;
+   transform: translateX(-50%) translateY(100px);
+  background: var(--dark);
+   color: #fff;
+   padding: 0.8rem 1.6rem;
+   border-radius: 50px;
+  font-weight: 500;
+   opacity: 0; 
+  transition: all 0.35s ease;
+   z-index: 200;
+}
+.cart-toast.show { 
+  opacity: 1; 
+  transform: translateX(-50%) translateY(0);
+ }
+
+
+
 
 
