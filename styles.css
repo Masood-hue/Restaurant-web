@@ -164,7 +164,7 @@ h3 {
   transition: box-shadow var(--transition);
 }
 .site-header.scrolled { 
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
  }
 .nav-container {
    display: flex;
