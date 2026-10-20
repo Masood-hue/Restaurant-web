@@ -49,5 +49,64 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+ /* =========================================================
+     4. MENU DATA & RENDERING
+     ========================================================= */
+  const menuItems = [
+    {
+      id: 1,
+      name: 'Signature Beef Burger',
+      description: 'Juicy grass-fed beef, melted cheddar, crisp lettuce & our secret sauce.',
+      price: '$14.99',
+      category: 'burgers',
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80',
+      popular: true
+    },
+    {
+      id: 2,
+      name: 'Spicy Chicken Pizza',
+      description: 'Wood-fired base, spicy marinated chicken, jalapeños & smoked mozzarella.',
+      price: '$16.49',
+      category: 'pizza',
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80',
+      popular: false
+    },
+    {
+      id: 3,
+      name: 'Crispy Chicken Wings',
+      description: 'Golden-fried wings tossed in your choice of honey-sriracha or classic buffalo.',
+      price: '$11.99',
+      category: 'main',
+      image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80',
+      popular: true
+    },
+    {
+      id: 4,
+      name: 'Creamy Alfredo Pasta',
+      description: 'Fettuccine in a rich parmesan cream sauce with grilled chicken & herbs.',
+      price: '$15.49',
+      category: 'main',
+      image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80',
+      popular: false
+    },
+    {
+      id: 5,
+      name: 'Loaded French Fries',
+      description: 'Crispy fries topped with melted cheese, bacon bits & green onions.',
+      price: '$8.99',
+      category: 'main',
+      image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80',
+      popular: false
+    },
+    {
+      id: 6,
+      name: 'Chocolate Lava Cake',
+      description: 'Warm chocolate cake with a molten centre, served with vanilla ice cream.',
+      price: '$9.99',
+      category: 'desserts',
+      image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80',
+      popular: true
+    }
+  ];
 
 })
