@@ -242,4 +242,40 @@ const menuGrid = document.getElementById('menuGrid');
 
   renderTestimonials();
 
+  //  7. RESERVATION FORM VALIDATION
+    
+  const reservationForm = document.getElementById('reservationForm');
+  const resFeedback = document.getElementById('resFeedback');
+
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('resName').value.trim();
+      const email = document.getElementById('resEmail').value.trim();
+      const phone = document.getElementById('resPhone').value.trim();
+      const guests = document.getElementById('resGuests').value;
+      const date = document.getElementById('resDate').value;
+      const time = document.getElementById('resTime').value;
+
+      let errors = [];
+
+      if (!name) errors.push('Full name is required.');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email is required.');
+      if (!phone) errors.push('Phone number is required.');
+      if (!guests) errors.push('Please select the number of guests.');
+      if (!date) errors.push('Please choose a reservation date.');
+      if (!time) errors.push('Please choose a reservation time.');
+
+      if (errors.length > 0) {
+        resFeedback.textContent = '⚠️ ' + errors.join(' ');
+        resFeedback.className = 'form-feedback error';
+      } else {
+        resFeedback.textContent = '✅ Reservation request received! This is a front-end demo — no real booking has been made. We\'ll be in touch once backend integration is complete.';
+        resFeedback.className = 'form-feedback success';
+        reservationForm.reset();
+      }
+    });
+  }
+
 })
