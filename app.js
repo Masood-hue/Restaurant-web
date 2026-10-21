@@ -277,8 +277,8 @@ const menuGrid = document.getElementById('menuGrid');
       }
     });
   }
-  // 8. CONTACT FORM VALIDATION
-  
+  8. CONTACT FORM VALIDATION
+     ========================================================= */
   const contactForm = document.getElementById('contactForm');
   const contactFeedback = document.getElementById('contactFeedback');
 
