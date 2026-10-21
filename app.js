@@ -277,5 +277,33 @@ const menuGrid = document.getElementById('menuGrid');
       }
     });
   }
+  // 8. CONTACT FORM VALIDATION
+  
+  const contactForm = document.getElementById('contactForm');
+  const contactFeedback = document.getElementById('contactFeedback');
 
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      let errors = [];
+
+      if (!name) errors.push('Name is required.');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email is required.');
+      if (!message) errors.push('Message cannot be empty.');
+
+      if (errors.length > 0) {
+        contactFeedback.textContent = '⚠️ ' + errors.join(' ');
+        contactFeedback.className = 'form-feedback error';
+      } else {
+        contactFeedback.textContent = '✅ Message sent (demo only). Thank you for reaching out!';
+        contactFeedback.className = 'form-feedback success';
+        contactForm.reset();
+      }
+    });
+  }
 })
