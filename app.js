@@ -321,9 +321,7 @@ const menuGrid = document.getElementById('menuGrid');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-/* =========================================================
-     10. DYNAMIC CURRENT YEAR IN FOOTER
-     ========================================================= */
+/*      10. DYNAMIC CURRENT YEAR IN FOOTER       */
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
