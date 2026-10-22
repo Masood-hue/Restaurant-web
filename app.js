@@ -277,8 +277,8 @@ const menuGrid = document.getElementById('menuGrid');
       }
     });
   }
-  8. CONTACT FORM VALIDATION
-     ========================================================= */
+  // 8. CONTACT FORM VALIDATION
+  
   const contactForm = document.getElementById('contactForm');
   const contactFeedback = document.getElementById('contactFeedback');
 
@@ -306,4 +306,20 @@ const menuGrid = document.getElementById('menuGrid');
       }
     });
   }
+  /*      9. BACK TO TOP BUTTON           */
+  
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (backToTop) {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    }
+  });
+
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 })
