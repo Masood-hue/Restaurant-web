@@ -307,7 +307,7 @@ const menuGrid = document.getElementById('menuGrid');
     });
   }
   /*      9. BACK TO TOP BUTTON           */
-  
+
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
@@ -319,6 +319,36 @@ const menuGrid = document.getElementById('menuGrid');
   if (backToTop) {
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+/* =========================================================
+     10. DYNAMIC CURRENT YEAR IN FOOTER
+     ========================================================= */
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+
+  /*  11. SCROLL-REVEAL ANIMATIONS (respecting reduced motion)      */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const revealElements = document.querySelectorAll('.section');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      revealObserver.observe(el);
     });
   }
 
