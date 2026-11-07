@@ -796,6 +796,9 @@ h3 {
   .footer-grid { 
     grid-template-columns: 1fr; 
   }
+  .form {
+     padding: var(--space-lg);
+     }
   .back-to-top { 
     bottom: 1rem; right: 1rem;
      width: 42px; 
