@@ -11,6 +11,11 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,6 +33,10 @@
 
       <nav class="main-nav" id="mainNav" aria-label="Primary">
           <div class="nav-actions">
+             <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
             <button class="btn btn-primary order-btn" id="orderNowBtn" aria-label="Order now">
                 Order Now</button>
           </div>
