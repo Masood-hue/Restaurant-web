@@ -13,7 +13,7 @@
   --success: #287D46;
 
   /* Typography */
-  --font-heading: 'Playfair Display', serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', sans-serif;
 
   /* Spacing */
@@ -218,6 +218,42 @@ h3 {
    align-items: center;
    gap: var(--space-md); 
 
+}
+.cart-btn {
+position: relative;
+background: transparent;
+border: 2px solid var(--border-light);
+border-radius: 50%;
+ width: 45px;
+height: 45px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+color: var(--text-dark);
+transition: var(--transition);
+}
+
+.cart-btn:hover {
+border-color: var(--primary-red);
+color: var(--primary-red);
+background-color: rgba(198, 40, 40, 0.05);
+}
+
+.cart-badge {
+position: absolute;
+top: -5px;
+right: -5px;
+background-color: var(--primary-red);
+color: white;
+font-size: 0.75rem;
+font-weight: 700;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .order-btn {
    padding: 0.6rem 1.4rem;
@@ -750,12 +786,12 @@ h3 {
     position: absolute;
     top: calc(100% + var(--space-md));
     right: 0;
-     background: var(--cream);
-     border-radius: var(--radius-md);
-     flex-direction: column;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    flex-direction: column;
     align-items: center; 
     justify-content: center; 
-     width: min(85vw, 22rem);
+    width: min(85vw, 22rem);
     max-height: calc(100vh - 6rem);
     overflow-y: auto;
     gap: var(--space-xl);
