@@ -301,6 +301,32 @@
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
+                 <!-- ===== CART DRAWER ===== -->
+                  
+ <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Order (<span id="cartCountHeader">0</span>)</h3>
+            <button class="close-cart" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cartItemsContainer">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p>Your order is currently empty.<br>Explore our menu and add delicious items!</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">$0.00</span>
+            </div>
+            <button class="btn-primary" id="checkoutBtn" style="width: 100%; justify-content: center; background-color: var(--primary-orange);">
+                <i class="fa-solid fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+
   <!-- ===== CART TOAST ===== -->
   <div class="cart-toast" id="cartToast" aria-live="polite"></div>
 
